@@ -1,24 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import Boton from "./components/Boton";
+import Tiempo from "./components/Tiempo";
+import Estructura from "./components/Estructura";
+import "./App.css";
+import { useState } from "react";
 
 function App() {
+  const [toggle, setToggle] = useState(true);
+  function clickHandler() {
+    setToggle((toggle) => !toggle);
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <span className="tiempo">
+      <div className="fecha">
+        <Estructura ti="horas"></Estructura>
+        <Estructura ti="minutos"></Estructura>
+        <Estructura ti="segundos"></Estructura>
+      </div>
+      <div className="dias">
+        <Estructura ti="dias"></Estructura>
+        <Estructura ti="espacio"></Estructura>
+        <Estructura ti="meses"></Estructura>
+        <Estructura ti="espacio"></Estructura>
+        <Estructura ti="anios"></Estructura>
+      </div>
+    </span>
   );
 }
 
